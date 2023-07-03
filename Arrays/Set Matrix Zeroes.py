@@ -41,8 +41,10 @@ class Solution(object):
         :type matrix: List[List[int]]
         :rtype: None Do not return anything, modify matrix in-place instead.
         """
-        row = []
-        col = []
+        row = []  # List to stores rows with zeros
+        col = []  # List to stores columns with zeros
+        
+        # Iterate through the matrix to find the rows and columns with zeros
         for i in range(len(matrix)):
             for j in range(len(matrix[0])):
                 if matrix[i][j] == 0:
@@ -50,13 +52,18 @@ class Solution(object):
                         row.append(i)
                     if j not in col:
                         col.append(j)
-
-        for r in row:
-            matrix[r] = [0 for i in range(len(matrix[0]))]
         
+        # Set the rows with zeros to all zeros
+        for r in row:
+            matrix[r] = [0] * len(matrix[0])
+        
+        # Set the columns with zeros to all zeros
         for i in range(len(matrix)):
             for j in range(len(matrix[0])):
                 if j in col:
                     matrix[i][j] = 0
-
+        
         return matrix
+    
+    # Time complexity: O(mn)
+    # Space complexity: O(m + n)
