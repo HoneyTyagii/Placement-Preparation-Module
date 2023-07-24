@@ -48,7 +48,7 @@ class Solution:
                 if currentNode.right:
                     queue.append(currentNode.right)
             isGoingRight = not isGoingRight
-            result.append(list(currentLevel))        
+            result.append(list(currentLevel))
         return result
     
     # time complexity o(n)
